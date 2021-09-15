@@ -1,0 +1,42 @@
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import Note from "./Note";
+import notes from "../notes";
+function createNotes(notesTerm) {
+  return (
+    <Note
+      key={notesTerm.i}
+      title={notesTerm.title}
+      content={notesTerm.content}
+    />
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <Header />
+      {notes.map(createNotes)}
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+/////////////////////////////arroy function
+function App() {
+  return (
+    <div>
+      <Header />
+      {notes.map((notesTerm) => (
+        <Note
+          key={notesTerm.i}
+          title={notesTerm.title}
+          content={notesTerm.content}
+        />
+      ))}
+      <Footer />
+    </div>
+  );
+}
